@@ -1,0 +1,34 @@
+Set or Clear a specific Bit in a Register
+
+Write a C program to set or clear a specific bit in an 8-bit register based on user input.
+
+The user provides an 8-bit integer (register value), a bit position (0-7), and a mode (0 for clear, 1 for set).
+Your task is to modify the register value accordingly and print the updated value.
+
+-----------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+unsigned char modifyBit(unsigned char reg, int pos, int mode) {
+
+    if(mode == 1){
+        reg |= (1<<pos);
+    }else{
+        reg &= ~(1<<pos);
+    }
+    return reg;
+}
+
+int main() {
+    unsigned char reg;
+    int pos, mode;
+    scanf("%hhu %d %d", &reg, &pos, &mode);
+    printf("%d", modifyBit(reg, pos, mode));
+    return 0;
+}
+
+INPUT:
+10  3  1
+
+OUTPUT:
+10
